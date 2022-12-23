@@ -33,7 +33,7 @@ public class Collider : MonoBehaviour
 
         verticalRotation -= mouseY * mouseSensitivity;
         verticalRotation = Mathf.Clamp(verticalRotation, -verticalRotationLimit, verticalRotationLimit);
-        Camera.main.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
+        Camera.main.transform.localRotation = Quaternion.Euler(-verticalRotation, 0, 0);
     }
 
     private void OnCollisionEnter(Collision collision)
