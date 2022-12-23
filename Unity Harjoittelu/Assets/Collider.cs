@@ -10,6 +10,8 @@ public class Collider : MonoBehaviour
     private float verticalRotation = 0;
     private float verticalRotationLimit = 60;
 
+    public Rigidbody rb;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,7 @@ public class Collider : MonoBehaviour
     {
         float forwardMovement = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
         float sideMovement = Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime;
+        
 
         transform.position += transform.forward * forwardMovement;
         transform.position += transform.right * sideMovement;
@@ -34,6 +37,11 @@ public class Collider : MonoBehaviour
         verticalRotation -= mouseY * mouseSensitivity;
         verticalRotation = Mathf.Clamp(verticalRotation, -verticalRotationLimit, verticalRotationLimit);
         Camera.main.transform.localRotation = Quaternion.Euler(-verticalRotation, 0, 0);
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.AddForce(0, 1000, 0);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
