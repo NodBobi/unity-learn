@@ -43,6 +43,12 @@ public class Collider : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if(collision.gameObject.name == "nappi3")
+        {
+            Debug.Log("osu");
+            transform.position = new Vector3(-70, 20, 5); 
+        }
+
         if(collision.gameObject.name == "Kuutio")
         {
             Debug.Log("Kuutio osui maahan.");
