@@ -39,10 +39,6 @@ public class Collider : MonoBehaviour
         verticalRotation = Mathf.Clamp(verticalRotation, -verticalRotationLimit, verticalRotationLimit);
         Camera.main.transform.localRotation = Quaternion.Euler(-verticalRotation, 0, 0);
 
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            rb.AddForce(0, JumpForce, 0);
-        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -50,6 +46,14 @@ public class Collider : MonoBehaviour
         if(collision.gameObject.name == "Kuutio")
         {
             Debug.Log("Kuutio osui maahan.");
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+                rb.AddForce(0, JumpForce, 0);
         }
     }
 }
