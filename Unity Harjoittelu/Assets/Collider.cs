@@ -11,6 +11,7 @@ public class Collider : MonoBehaviour
     private float verticalRotationLimit = 60;
 
     public Rigidbody rb;
+    public int JumpForce = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +41,7 @@ public class Collider : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            rb.AddForce(0, 1000, 0);
+            rb.AddForce(0, JumpForce, 0);
         }
     }
 
