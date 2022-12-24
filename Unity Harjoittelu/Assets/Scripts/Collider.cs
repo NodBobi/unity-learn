@@ -49,7 +49,13 @@ public class Collider : MonoBehaviour
             transform.position = new Vector3(-70, 20, 5); 
         }
 
-        if(collision.gameObject.name == "Kuutio")
+        if (collision.gameObject.name == "nappi4")
+        {
+            Debug.Log("osu");
+            transform.position = new Vector3(41, 2, 4);
+        }
+
+        if (collision.gameObject.name == "Kuutio")
         {
             Debug.Log("Kuutio osui maahan.");
         }
